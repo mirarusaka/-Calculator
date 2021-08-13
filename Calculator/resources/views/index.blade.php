@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
         <div class="d-flex justify-content-center">
-            計算機プログラム
+            計算機プログラムです！
         </div>
     </body>
 </html>
