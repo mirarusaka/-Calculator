@@ -8,5 +8,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 h1 {
-    color:skyblue;
+    color:red;
 }
+
+h2{
+    color:white;
+    font-size: 14px;
+}
+
+body {
+    font-family: "cursive" ;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:url(../../storage/app/public/background.jpg);
+  }

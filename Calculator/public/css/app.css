@@ -10003,5 +10003,18 @@ h3 {
   }
 }
 h1 {
-  color: skyblue;
+  color: red;
+}
+
+h2 {
+  color: white;
+  font-size: 14px;
+}
+
+body {
+  font-family: "cursive";
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/images/background.jpg?4eb552e8b3ce5075144eb1ced2003c8b);
 }
