@@ -11,6 +11,8 @@
     <body>
         <div class="menubar">お問い合わせ</div>
             @yield('contents')
-            このサイトについて
+            <div class="right">
+                ©Norihisa Oyama 2021.
+            </div>
     </body>
 </html>
