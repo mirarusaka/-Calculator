@@ -9,9 +9,8 @@
   <div>
     </head>
     <body>
-        <h2>大山の計算機プログラム</h2>
-        <div class="container">
+        <div class="menubar">お問い合わせ</div>
             @yield('contents')
-        </div>
+            このサイトについて
     </body>
 </html>
