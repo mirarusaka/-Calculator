@@ -13,6 +13,7 @@
 }
 
 body {
+    background-size:cover;
     background-image:url(../../storage/app/public/background.jpg);
   }
 
@@ -51,8 +52,20 @@ body {
 
 .box {
     background-color: lightgray;
-    padding: 100px;
+    padding: 10px;
     margin: 100px;
     width: 300px;
     height: 200px;
+
+    p{
+        background-color: black;
+        color:lightgray;
+    }
+
+    ul{
+        background-color: blue;
+        color:lightgray;
+    }
   }
+
+
