@@ -10039,3 +10039,11 @@ body {
   text-shadow: 1px 2px 3px #808080;
   color: #DCDCDC;
 }
+
+.box {
+  background-color: lightgray;
+  padding: 100px;
+  margin: 100px;
+  width: 300px;
+  height: 200px;
+}
