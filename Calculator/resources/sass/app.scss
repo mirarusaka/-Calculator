@@ -10,18 +10,19 @@
 .menubar{
     color:white;
     font-size: 14px;
+    text-align: left;
 }
 
 body {
     background-size:cover;
     background-image:url(../../storage/app/public/background.jpg);
+    text-align: center;
   }
 
 .top {
     color:#DCDCDC;
     font-size: 92px;
     font-family: Gothic MB101 DemiBold;
-    text-align:center;
     text-shadow: 1px 2px 3px #808080;
 
     p{
@@ -51,20 +52,25 @@ body {
 }
 
 .box {
-    background-color: lightgray;
-    padding: 10px;
-    margin: 100px;
-    width: 300px;
-    height: 200px;
+    background-color: black;
+    width: 100%;
+    max-width: 350px;
+    height: 430px;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px;
 
     p{
-        background-color: black;
         color:lightgray;
     }
 
     ul{
-        background-color: blue;
+        background-color: rgb(27, 27, 27);
+        font-size: 32px;
+        text-align: right;
+        height: 60px;
         color:lightgray;
+        font-family: Pretty Momo;
     }
   }
 

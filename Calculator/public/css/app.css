@@ -10005,18 +10005,19 @@ h3 {
 .menubar {
   color: white;
   font-size: 14px;
+  text-align: left;
 }
 
 body {
   background-size: cover;
   background-image: url(/images/background.jpg?4eb552e8b3ce5075144eb1ced2003c8b);
+  text-align: center;
 }
 
 .top {
   color: #DCDCDC;
   font-size: 92px;
   font-family: Gothic MB101 DemiBold;
-  text-align: center;
   text-shadow: 1px 2px 3px #808080;
 }
 .top p {
@@ -10042,17 +10043,22 @@ body {
 }
 
 .box {
-  background-color: lightgray;
-  padding: 10px;
-  margin: 100px;
-  width: 300px;
-  height: 200px;
+  background-color: black;
+  width: 100%;
+  max-width: 350px;
+  height: 430px;
+  align-items: center;
+  margin: 20px auto;
+  padding: 15px;
 }
 .box p {
-  background-color: black;
   color: lightgray;
 }
 .box ul {
-  background-color: blue;
+  background-color: #1b1b1b;
+  font-size: 32px;
+  text-align: right;
+  height: 60px;
   color: lightgray;
+  font-family: Pretty Momo;
 }
