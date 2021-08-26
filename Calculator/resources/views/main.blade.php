@@ -5,8 +5,8 @@
 @section('contents')
 
 <div class="box">
-    <ul>
-        １２３４５６７８９　<br>
+    <ul> {{-- ここに数字を表示。 --}}
+        {{ $number }}<br>
     </ul>
     {{-- ボタン それぞれリンクがつく Bootstrap5 使用--}}
     <p>
