@@ -6,7 +6,12 @@
 
 <div class="box">
     <ul> {{-- ここに数字を表示。 --}}
-        {{ $number }}<br>
+        @if (isset($number))
+            {{ $number }}
+        @else
+            0
+        @endif
+        <br>
     </ul>
     {{-- ボタン それぞれリンクがつく Bootstrap5 使用--}}
     <p>
