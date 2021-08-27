@@ -10043,22 +10043,36 @@ body {
 }
 
 .box {
-  background-color: black;
+  background-color: #1f3134;
   width: 100%;
   max-width: 350px;
   height: 430px;
   align-items: center;
   margin: 20px auto;
   padding: 15px;
-  font-family: FB Agency Regular;
 }
 .box p {
-  color: lightgray;
-}
-.box ul {
   background-color: #1b1b1b;
-  font-size: 32px;
+  font-size: 40px;
   text-align: right;
-  height: 60px;
   color: lightgray;
+  font-family: FB Agency Regular;
+}
+
+.btn-primary {
+  background-color: #949495;
+  border-color: #949495;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  margin-left: 0px;
+  margin-top: 0px;
+  box-shadow: 0px 0px 0px 1px #DEDEDE;
+}
+
+.rounded-pill {
+  text-align: left;
+  width: 160px;
 }
