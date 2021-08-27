@@ -10060,16 +10060,48 @@ body {
 }
 
 .btn-primary {
-  background-color: #949495;
-  border-color: #949495;
+  background-color: #38a1db;
+  border-color: #38a1db;
   font-size: 36px;
   font-weight: bold;
 }
 
 .btn-primary:hover {
+  color: #203744;
   margin-left: 0px;
   margin-top: 0px;
   box-shadow: 0px 0px 0px 1px #DEDEDE;
+  background-color: #bce2e8;
+}
+
+.btn-danger {
+  background-color: #e9546b;
+  border-color: #e9546b;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  color: #203744;
+  margin-left: 0px;
+  margin-top: 0px;
+  box-shadow: 0px 0px 0px 1px #DEDEDE;
+  background-color: #e597b2;
+}
+
+.btn-success {
+  background-color: #69b076;
+  border-color: #69b076;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  color: #203744;
+  margin-left: 0px;
+  margin-top: 0px;
+  box-shadow: 0px 0px 0px 1px #DEDEDE;
+  background-color: #badcad;
 }
 
 .rounded-pill {
