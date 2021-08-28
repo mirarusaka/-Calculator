@@ -4,9 +4,10 @@
 
 @section('contents')
 <div class="box">
-    <p> {{-- ここに数字を表示。 --}}
-        <input type="text" name="result" value="" id="result">
-    </p>
+    {{-- ここに数字を表示。 --}}
+        <p id="number">
+            1
+        </p>
     {{-- ボタン それぞれリンクがつく Bootstrap5 使用--}}
         {{-- １行目 --}}
         <div style="display:inline-flex">

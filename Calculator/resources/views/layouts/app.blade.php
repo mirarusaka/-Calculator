@@ -18,10 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             function test(obj) {
-                if(obj.innerText == "AC")
-                {
-                    document.dentaku.display.value = "";
-                }
+                    document.getElementById(number).innerHTML = "やっと能天気なお前でも飲み込めたようだな";
             }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}
