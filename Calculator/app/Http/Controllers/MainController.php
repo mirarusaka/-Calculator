@@ -19,4 +19,11 @@ class MainController extends Controller //ページの移動など、メイン�
 
         return view('main', ['number' => $number]);
     }
+
+    public function push(Request $request) //ボタンを押した時の動作 他のコントローラーからメソッドを呼び出し
+    {
+        $number = $request->btn();
+
+        return redirect('main', $number);
+    }
 }
