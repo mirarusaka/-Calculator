@@ -18,7 +18,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             function test(obj) {
-                console.log(obj);
+                if(obj.innerText == "AC")
+                {
+                    document.dentaku.display.value = "";
+                }
             }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}
