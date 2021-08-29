@@ -18,9 +18,82 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             function test(obj) {
-                    if(obj.innerText == "AC")
-                    {
-                        window.alert(obj.innerText);
+                    switch(obj.innerText){
+                        case "AC":
+
+                        break;
+
+                        case "C":
+
+                        break;
+
+                        case "%":
+
+                        break;
+
+                        case "÷":
+
+                        break;
+
+                        case "1":
+
+                        break;
+
+                        case "2":
+
+                        break;
+
+                        case "3":
+
+                        break;
+
+                        case "×":
+
+                        break;
+
+                        case "4":
+
+                        break;
+
+                        case "5":
+
+                        break;
+
+                        case "6":
+
+                        break;
+
+                        case "-":
+
+                        break;
+
+                        case "7":
+
+                        break;
+
+                        case "8":
+
+                        break;
+
+                        case "9":
+
+                        break;
+
+                        case "+":
+
+                        break;
+
+                        case "0":
+
+                        break;
+
+                        case ".":
+
+                        break;
+
+                        case "=":
+
+                        break;
                     }
 
             }
