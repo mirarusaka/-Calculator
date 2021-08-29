@@ -18,7 +18,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             function test(obj) {
-                    document.getElementById(number).innerHTML = "やっと能天気なお前でも飲み込めたようだな";
+                    if(obj.innerText == "AC")
+                    {
+                        window.alert(obj.innerText);
+                    }
+
             }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}
