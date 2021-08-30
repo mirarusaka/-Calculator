@@ -5,9 +5,7 @@
 @section('contents')
 <div class="box">
     {{-- ここに数字を表示。 --}}
-        <p id="number">
-            0
-        </p>
+        <div class="number">0</div>
     {{-- ボタン それぞれリンクがつく Bootstrap5 使用--}}
         {{-- １行目 --}}
         <div style="display:inline-flex">

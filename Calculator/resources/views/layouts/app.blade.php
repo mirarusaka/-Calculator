@@ -18,101 +18,84 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             function test(obj) {
-                let myTotal = 0;
-                let myInput = "";
-                let myCalc = "+";
-                let myFlg = 1;
+                let outputArea = $(".number");
+                let myTotal = ""; //現在の合計
+                let output = new Array(); //入力中の値
+                let myCalc = ""; //演算子
+                let historyVal = 0; //前に何の値が入ったか
+                let historyBtn = ""; //前に何のボタンを押したか
 
-                    switch(obj.innerText){
-                        case "AC":
+                switch(obj.innerText){
+                case "AC":
+                    myTotal = 0;	// 合計クリア
+                    myCalc = "";	// 演算子クリア
+                    output = [];	// 現在入力している値をクリア
+                    document.getElementById('number').innerHTML = 0;
+                    break;
+
+                case "C":
+                    if(historyBtn == ""){ //既に入力した履歴が無い場合
                         myTotal = 0;	// 合計クリア
-                        myCalc = "+";	// 演算子クリア
-                        myInput = "";	// 現在入力している値をクリア
-                        document.getElementById('number').innerHTML = myTotal;
-                        break;
-
-                        case "C":
-                            if(myTotal = 0){ //既に入力した数値が無い場合
-                                myTotal = 0;	// 合計クリア
-                                myInput = 0;	// 現在入力している値をクリア
-                            }else{
-                                myInput = 0;	// 現在入力している値をクリア
-                            }
-
-                            document.getElementById('number').innerHTML = myInput;
-                        break;
-
-                        case "%":
-                            myInput = myInput / 100;	// 現在入力している値を1/100に
-                            var array = myInput.toString().split('.');
-                            document.getElementById('number').innerHTML = myInput(array[1].length);;
-                        break;
-
-                        case "÷":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "1":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "2":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "3":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "×":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "4":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "5":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "6":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "-":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "7":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "8":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "9":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "+":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "0":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case ".":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
-
-                        case "=":
-                            document.getElementById('number').innerHTML = obj.innerText;
-                        break;
+                        output = 0;	// 現在入力している値をクリア
+                    }else{
+                        output = 0;	// 現在入力している値をクリア
                     }
+                    document.getElementById('number').innerHTML = output;
+                    break;
 
+                case "%":
+                    if(myTotal != ""){
+                        output = output / 100;	// 現在入力している値を1/100に
+                        var array = output.toString().split('.');
+                        document.getElementById('number').innerHTML = output.toFixed(array[1].length);
+                    }
+                    break;
+
+                case "÷":
+                    document.getElementById('number').innerHTML = obj.innerText;
+                    break;
+
+                case "-":
+                    document.getElementById('number').innerHTML = obj.innerText;
+                    break;
+
+                case "+":
+                    document.getElementById('number').innerHTML = obj.innerText;
+                    break;
+
+                case "=":
+                    document.getElementById('number').innerHTML = obj.innerText;
+                    break;
+
+                case "0":
+                    //TODO 初期値が0以外の条件で、処理を実行する
+                    document.getElementById('number').innerHTML = output;
+                    break;
+
+                case ".":
+                    //TODO ドット判定を追加、無ければ処理(2つの存在はありえない)
+                    document.getElementById('number').innerHTML = obj.innerText;
+                    break;
+
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    let inputText = "";
+                    if(outputArea.text() != "0"){
+                        //TODO 桁数判定を追加しておく
+                        inputText = outputArea.text(); //取得した文字を変数に代入
+                    }
+                    inputText += $(obj).text();
+
+                    outputArea.text(inputText);
+                    break;
+                }
             }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}

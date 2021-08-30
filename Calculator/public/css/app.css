@@ -10051,7 +10051,8 @@ body {
   margin: 20px auto;
   padding: 15px;
 }
-.box p {
+
+.number {
   background-color: #1b1b1b;
   font-size: 40px;
   text-align: right;
