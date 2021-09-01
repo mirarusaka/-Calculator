@@ -17,64 +17,92 @@
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
+            let inputNum = ""; //左辺の値保存用 グローバル
+            let math = ""; //演算子保存用 グローバル
             function test(obj) {
-                let outputArea = $(".number");
-                let myTotal = ""; //現在の合計
-                let output = new Array(); //入力中の値
-                let myCalc = ""; //演算子
-                let historyVal = 0; //前に何の値が入ったか
-                let historyBtn = ""; //前に何のボタンを押したか
+                let outputArea = $(".number"); //現在表示されている値を取得
 
                 switch(obj.innerText){
                 case "AC":
-                    myTotal = 0;	// 合計クリア
-                    myCalc = "";	// 演算子クリア
-                    output = [];	// 現在入力している値をクリア
-                    document.getElementById('number').innerHTML = 0;
+                    outputArea.text(0);
+                    inputNum = "";
+                    math = "";
+
                     break;
 
                 case "C":
-                    if(historyBtn == ""){ //既に入力した履歴が無い場合
-                        myTotal = 0;	// 合計クリア
-                        output = 0;	// 現在入力している値をクリア
-                    }else{
-                        output = 0;	// 現在入力している値をクリア
-                    }
-                    document.getElementById('number').innerHTML = output;
+                    outputArea.text(0);
                     break;
 
                 case "%":
-                    if(myTotal != ""){
-                        output = output / 100;	// 現在入力している値を1/100に
-                        var array = output.toString().split('.');
-                        document.getElementById('number').innerHTML = output.toFixed(array[1].length);
+                    if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        let inputText = outputArea.text();
+                        inputText = inputText / 100;
+                        //TODO inputTextの文字数をカウントさせる
+                        outputArea.text(inputText);
                     }
                     break;
 
-                case "÷":
-                    document.getElementById('number').innerHTML = obj.innerText;
+                case "+":
+                    if(math == "+"){ //既に演算子が入力されている場合
+                        if(inputNum != ""){ //左辺が入っている場合
+                            let inputText = outputArea.text();
+                            let result = Number(inputText) + Number(inputNum);
+                            outputArea.text(result);
+                        }else{
+                            math += "+"; //演算子を保存
+                        }
+
+                    }else{
+                        inputNum = outputArea.text(); //左辺の値を変数に保存
+                        console.log(inputNum);
+                        math = "+"; //演算子を保存
+                        console.log(math);
+                        outputArea.text("0");//表示を0に
+                    }
                     break;
 
                 case "-":
-                    document.getElementById('number').innerHTML = obj.innerText;
                     break;
 
-                case "+":
-                    document.getElementById('number').innerHTML = obj.innerText;
+                case "÷":
                     break;
 
                 case "=":
-                    document.getElementById('number').innerHTML = obj.innerText;
+                    let inputText = outputArea.text();
+                    let result = 0;
+                    console.log(math);
+                    switch(math){
+                        case "+":
+                            result = Number(inputText) + Number(inputNum);
+                            break;
+
+                        case "-":
+                            result = Number(inputText) - Number(inputNum);
+                            break;
+
+                        case "×":
+                            result = Number(inputText) * Number(inputNum);
+                            break;
+
+                        case "÷":
+                            result = Number(inputText) / Number(inputNum);
+                            break;
+                    }
+                    outputArea.text(result);
+                    math = "";
                     break;
 
                 case "0":
                     //TODO 初期値が0以外の条件で、処理を実行する
-                    document.getElementById('number').innerHTML = output;
                     break;
 
                 case ".":
-                    //TODO ドット判定を追加、無ければ処理(2つの存在はありえない)
-                    document.getElementById('number').innerHTML = obj.innerText;
+                    let dot = outputArea.text();
+                    if(dot.indexOf('.') == -1){
+                        dot += ".";
+                        outputArea.text(dot);
+                    }
                     break;
 
                 case "1":
@@ -86,15 +114,18 @@
                 case "7":
                 case "8":
                 case "9":
-                    let inputText = "";
-                    if(outputArea.text() != "0"){
-                        //TODO 桁数判定を追加しておく
-                        inputText = outputArea.text(); //取得した文字を変数に代入
-                    }
-                    inputText += $(obj).text();
+                    let num = ""; //入力された値を保存する用
 
-                    outputArea.text(inputText);
-                    break;
+                    if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        if(outputArea.text() != "0"){
+                            //TODO 桁数判定を追加しておく
+                            num = outputArea.text(); //取得した文字を変数に代入
+                        }
+                        num += $(obj).text(); //入力された値を連結
+
+                        outputArea.text(num); //現在表示されている値を上書き
+                        break;
+                    }
                 }
             }
         </script>
