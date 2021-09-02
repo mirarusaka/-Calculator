@@ -54,7 +54,7 @@
                         if(inputNum != ""){ //左辺が入っている場合
                             if(flug != 0){
                             let inputText = outputArea.text();
-                            inputNum = Number(inputText) + Number(inputNum);
+                            inputNum = Number(inputNum) + Number(inputText);
                             flug = 0;
                             outputArea.text(inputNum);
                             }
@@ -70,7 +70,8 @@
 
                 case "-":
                     break;
-
+                case "×":
+                    break;
                 case "÷":
                     break;
 
@@ -80,23 +81,39 @@
                     switch(math){
                         case "+":
                             if(flug != 0){ //数値ボタンを押している場合
-                                result = Number(inputText) + Number(inputNum);
+                                result = Number(inputNum) + Number(inputText);
                             }else if(inputNum != 0){ //最初の入力値が入っている場合
-                                console.log("ここ");
                                 result = Number(inputNum) + Number(inputNum);
                             }else{ //演算子→数字を入力した場合、もしくはそれ以外
-                                console.log(lastNum);
                                 result = Number(inputText) + Number(lastNum);
                             }
                             break;
                         case "-":
-                            result = Number(inputText) - Number(inputNum);
+                            if(flug != 0){ //数値ボタンを押している場合
+                                result = Number(inputText) - Number(inputNum);
+                            }else if(inputNum != 0){ //最初の入力値が入っている場合
+                                result = Number(inputNum) - Number(inputNum);
+                            }else{ //演算子→数字を入力した場合、もしくはそれ以外
+                                result = Number(inputText) - Number(lastNum);
+                            }
                             break;
                         case "×":
-                            result = Number(inputText) * Number(inputNum);
+                            if(flug != 0){ //数値ボタンを押している場合
+                                result = Number(inputText) * Number(inputNum);
+                            }else if(inputNum != 0){ //最初の入力値が入っている場合
+                                result = Number(inputNum) * Number(inputNum);
+                            }else{ //演算子→数字を入力した場合、もしくはそれ以外
+                                result = Number(inputText) * Number(lastNum);
+                            }
                             break;
                         case "÷":
-                            result = Number(inputText) / Number(inputNum);
+                            if(flug != 0){ //数値ボタンを押している場合
+                                result = Number(inputText) / Number(inputNum);
+                            }else if(inputNum != 0){ //最初の入力値が入っている場合
+                                result = Number(inputNum) / Number(inputNum);
+                            }else{ //演算子→数字を入力した場合、もしくはそれ以外
+                                result = Number(inputText) / Number(lastNum);
+                            }
                             break;
                     }
                     outputArea.text(result);
@@ -155,7 +172,6 @@
                         }
                         num += $(obj).text(); //入力された値を連結
                         lastNum = num;
-                        console.log("最後の入力値は" + lastNum + "だよ！");
                         outputArea.text(num); //現在表示されている値を上書き
                         break;
                     }
