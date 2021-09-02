@@ -50,7 +50,7 @@
                     break;
 
                 case "+":
-                    if(math != ""){ //既に演算子が入力されている場合
+                    if(math == "+"){ //既に演算子が入力されている場合
                         if(inputNum != ""){ //左辺が入っている場合
                             if(flug != 0){
                             let inputText = outputArea.text();
@@ -70,7 +70,7 @@
                     break;
 
                 case "-":
-                    if(math != ""){ //既に演算子が入力されている場合
+                    if(math == "-"){ //既に演算子が入力されている場合
                         if(inputNum != ""){ //左辺が入っている場合
                             if(flug != 0){
                             let inputText = outputArea.text();
@@ -89,7 +89,7 @@
                     }
                     break;
                 case "×":
-                    if(math != ""){ //既に演算子が入力されている場合
+                    if(math == "×"){ //既に演算子が入力されている場合
                         if(inputNum != ""){ //左辺が入っている場合
                             if(flug != 0){
                             let inputText = outputArea.text();
@@ -108,7 +108,7 @@
                     }
                     break;
                 case "÷":
-                    if(math != ""){ //既に演算子が入力されている場合
+                    if(math == "÷"){ //既に演算子が入力されている場合
                         if(inputNum != ""){ //左辺が入っている場合
                             if(flug != 0){
                             let inputText = outputArea.text();
