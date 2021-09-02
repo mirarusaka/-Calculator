@@ -19,6 +19,7 @@
         <script type="text/javascript">
             let inputNum = ""; //左辺の値保存用 グローバル
             let math = ""; //演算子保存用 グローバル
+            let flug = 0;
             function test(obj) {
                 let outputArea = $(".number"); //現在表示されている値を取得
 
@@ -39,26 +40,30 @@
                         let inputText = outputArea.text();
                         inputText = inputText / 100;
                         //TODO inputTextの文字数をカウントさせる
-                        outputArea.text(inputText);
+                        if(inputText.length < "16"){
+                            outputArea.text("ERROR!!");
+                        }else{
+                            outputArea.text(Number(inputText));
+                        }
                     }
                     break;
 
                 case "+":
-                    if(math == "+"){ //既に演算子が入力されている場合
+                    if(math != ""){ //既に演算子が入力されている場合
                         if(inputNum != ""){ //左辺が入っている場合
+                            if(flug != 0){
                             let inputText = outputArea.text();
-                            let result = Number(inputText) + Number(inputNum);
-                            outputArea.text(result);
+                            inputNum = Number(inputText) + Number(inputNum);
+                            flug = 0;
+                            outputArea.text(inputNum);
+                            }
                         }else{
-                            math += "+"; //演算子を保存
+                            math = "+"; //演算子を保存
                         }
 
                     }else{
                         inputNum = outputArea.text(); //左辺の値を変数に保存
-                        console.log(inputNum);
                         math = "+"; //演算子を保存
-                        console.log(math);
-                        outputArea.text("0");//表示を0に
                     }
                     break;
 
@@ -71,7 +76,6 @@
                 case "=":
                     let inputText = outputArea.text();
                     let result = 0;
-                    console.log(math);
                     switch(math){
                         case "+":
                             result = Number(inputText) + Number(inputNum);
@@ -95,11 +99,27 @@
 
                 case "0":
                     //TODO 初期値が0以外の条件で、処理を実行する
+                    if(outputArea.text() != 0){
+                        let num = ""; //入力された値を保存する用
+
+                        if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                            if(outputArea.text() != "0"){
+                                if(math != ""){
+                                    flug = 1; //演算子を押した後に数字を押したか
+                                    num = ""; //取得した文字を変数に代入
+                                }else{
+                                    num = outputArea.text(); //取得した文字を変数に代入
+                                }
+                            }
+                            num += $(obj).text(); //入力された値を連結
+                            outputArea.text(num); //現在表示されている値を上書き
+                        }
+                    }
                     break;
 
                 case ".":
                     let dot = outputArea.text();
-                    if(dot.indexOf('.') == -1){
+                    if(dot.indexOf('.') == -1){ //.があるか判定
                         dot += ".";
                         outputArea.text(dot);
                     }
@@ -118,8 +138,12 @@
 
                     if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
                         if(outputArea.text() != "0"){
-                            //TODO 桁数判定を追加しておく
-                            num = outputArea.text(); //取得した文字を変数に代入
+                            if(math != ""){
+                                flug = 1; //演算子を押した後に数字を押したか
+                                num = ""; //取得した文字を変数に代入
+                            }else{
+                                num = outputArea.text(); //取得した文字を変数に代入
+                            }
                         }
                         num += $(obj).text(); //入力された値を連結
 
