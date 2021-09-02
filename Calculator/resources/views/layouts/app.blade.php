@@ -59,20 +59,68 @@
                             outputArea.text(inputNum);
                             }
                         }else{
-                            math = "+"; //演算子を保存
+                            math = $(obj).text(); //演算子を保存
                         }
 
                     }else{
                         inputNum = outputArea.text(); //左辺の値を変数に保存
-                        math = "+"; //演算子を保存
+                        math = $(obj).text(); //演算子を保存
                     }
                     break;
 
                 case "-":
+                    if(math != ""){ //既に演算子が入力されている場合
+                        if(inputNum != ""){ //左辺が入っている場合
+                            if(flug != 0){
+                            let inputText = outputArea.text();
+                            inputNum = Number(inputNum) - Number(inputText);
+                            flug = 0;
+                            outputArea.text(inputNum);
+                            }
+                        }else{
+                            math = $(obj).text(); //演算子を保存
+                        }
+
+                    }else{
+                        inputNum = outputArea.text(); //左辺の値を変数に保存
+                        math = $(obj).text(); //演算子を保存
+                    }
                     break;
                 case "×":
+                    if(math != ""){ //既に演算子が入力されている場合
+                        if(inputNum != ""){ //左辺が入っている場合
+                            if(flug != 0){
+                            let inputText = outputArea.text();
+                            inputNum = Number(inputNum) * Number(inputText);
+                            flug = 0;
+                            outputArea.text(inputNum);
+                            }
+                        }else{
+                            math = $(obj).text(); //演算子を保存
+                        }
+
+                    }else{
+                        inputNum = outputArea.text(); //左辺の値を変数に保存
+                        math = $(obj).text(); //演算子を保存
+                    }
                     break;
                 case "÷":
+                    if(math != ""){ //既に演算子が入力されている場合
+                        if(inputNum != ""){ //左辺が入っている場合
+                            if(flug != 0){
+                            let inputText = outputArea.text();
+                            inputNum = Number(inputNum) / Number(inputText);
+                            flug = 0;
+                            outputArea.text(inputNum);
+                            }
+                        }else{
+                            math = $(obj).text(); //演算子を保存
+                        }
+
+                    }else{
+                        inputNum = outputArea.text(); //左辺の値を変数に保存
+                        math = $(obj).text(); //演算子を保存
+                    }
                     break;
 
                 case "=":
@@ -90,7 +138,7 @@
                             break;
                         case "-":
                             if(flug != 0){ //数値ボタンを押している場合
-                                result = Number(inputText) - Number(inputNum);
+                                result = Number(inputNum) - Number(inputText);
                             }else if(inputNum != 0){ //最初の入力値が入っている場合
                                 result = Number(inputNum) - Number(inputNum);
                             }else{ //演算子→数字を入力した場合、もしくはそれ以外
@@ -99,7 +147,7 @@
                             break;
                         case "×":
                             if(flug != 0){ //数値ボタンを押している場合
-                                result = Number(inputText) * Number(inputNum);
+                                result = Number(inputNum) * Number(inputText);
                             }else if(inputNum != 0){ //最初の入力値が入っている場合
                                 result = Number(inputNum) * Number(inputNum);
                             }else{ //演算子→数字を入力した場合、もしくはそれ以外
@@ -108,7 +156,7 @@
                             break;
                         case "÷":
                             if(flug != 0){ //数値ボタンを押している場合
-                                result = Number(inputText) / Number(inputNum);
+                                result = Number(inputNum) / Number(inputText);
                             }else if(inputNum != 0){ //最初の入力値が入っている場合
                                 result = Number(inputNum) / Number(inputNum);
                             }else{ //演算子→数字を入力した場合、もしくはそれ以外
@@ -135,6 +183,7 @@
                                     num = outputArea.text(); //取得した文字を変数に代入
                                 }
                             }
+                            lastNum = num; //最終入力値を保存
                             num += Number($(obj).text()); //入力された値を連結
                             outputArea.text(num); //現在表示されている値を上書き
                         }
@@ -171,7 +220,7 @@
                             }
                         }
                         num += $(obj).text(); //入力された値を連結
-                        lastNum = num;
+                        lastNum = num; //最終入力値を保存
                         outputArea.text(num); //現在表示されている値を上書き
                         break;
                     }
