@@ -59,6 +59,7 @@
                             outputArea.text(inputNum);
                             }
                         }else{
+                            inputNum = outputArea.text(); //左辺の値を変数に保存
                             math = $(obj).text(); //演算子を保存
                         }
 
@@ -78,6 +79,7 @@
                             outputArea.text(inputNum);
                             }
                         }else{
+                            inputNum = outputArea.text(); //左辺の値を変数に保存
                             math = $(obj).text(); //演算子を保存
                         }
 
@@ -96,6 +98,7 @@
                             outputArea.text(inputNum);
                             }
                         }else{
+                            inputNum = outputArea.text(); //左辺の値を変数に保存
                             math = $(obj).text(); //演算子を保存
                         }
 
@@ -114,6 +117,7 @@
                             outputArea.text(inputNum);
                             }
                         }else{
+                            inputNum = outputArea.text(); //左辺の値を変数に保存
                             math = $(obj).text(); //演算子を保存
                         }
 
