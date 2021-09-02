@@ -19,7 +19,8 @@
         <script type="text/javascript">
             let inputNum = ""; //左辺の値保存用 グローバル
             let math = ""; //演算子保存用 グローバル
-            let flug = 0;
+            let flug = 0; //数値ボタン押したかフラグ
+            let lastNum = ""; //最後に入力された数値
             function test(obj) {
                 let outputArea = $(".number"); //現在表示されている値を取得
 
@@ -78,23 +79,29 @@
                     let result = 0;
                     switch(math){
                         case "+":
-                            result = Number(inputText) + Number(inputNum);
+                            if(flug != 0){ //数値ボタンを押している場合
+                                result = Number(inputText) + Number(inputNum);
+                            }else if(inputNum != 0){ //最初の入力値が入っている場合
+                                console.log("ここ");
+                                result = Number(inputNum) + Number(inputNum);
+                            }else{ //演算子→数字を入力した場合、もしくはそれ以外
+                                console.log(lastNum);
+                                result = Number(inputText) + Number(lastNum);
+                            }
                             break;
-
                         case "-":
                             result = Number(inputText) - Number(inputNum);
                             break;
-
                         case "×":
                             result = Number(inputText) * Number(inputNum);
                             break;
-
                         case "÷":
                             result = Number(inputText) / Number(inputNum);
                             break;
                     }
                     outputArea.text(result);
-                    math = "";
+                    inputNum = "";
+                    flug = 0; //数字を押したフラグ消去
                     break;
 
                 case "0":
@@ -111,7 +118,7 @@
                                     num = outputArea.text(); //取得した文字を変数に代入
                                 }
                             }
-                            num += $(obj).text(); //入力された値を連結
+                            num += Number($(obj).text()); //入力された値を連結
                             outputArea.text(num); //現在表示されている値を上書き
                         }
                     }
@@ -137,6 +144,7 @@
                     let num = ""; //入力された値を保存する用
 
                     if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        lastNum = $(obj).text(); //履歴として保存
                         if(outputArea.text() != "0"){
                             if(math != ""){
                                 flug = 1; //演算子を押した後に数字を押したか
@@ -146,7 +154,8 @@
                             }
                         }
                         num += $(obj).text(); //入力された値を連結
-
+                        lastNum = num;
+                        console.log("最後の入力値は" + lastNum + "だよ！");
                         outputArea.text(num); //現在表示されている値を上書き
                         break;
                     }
