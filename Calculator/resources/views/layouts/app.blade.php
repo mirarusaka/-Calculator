@@ -36,18 +36,21 @@
                     outputArea.text(0);
                     break;
 
-                case "%":
-                    if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
-                        let inputText = outputArea.text();
-                        inputText = inputText / 100;
-                        //TODO inputTextの文字数をカウントさせる
-                        if(inputText.length < "16"){
-                            outputArea.text("ERROR!!");
-                        }else{
-                            outputArea.text(Number(inputText));
-                        }
-                    }
-                    break;
+                // case "%":
+                //     if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                //         let inputText = outputArea.text();
+                //         inputText = inputText / 100;
+                //         console.log(String(inputText).length);
+                //         console.log(outputArea);
+                //         //TODO inputTextの文字数をカウントさせる
+                //         if(String(inputText).length > 16){
+                //             let num = (String(inputText).length - 16);
+                //             inputText = floorDecimal(inputText, num);
+                //         }else{
+                //             outputArea.text(inputText);
+                //         }
+                //     }
+                //     break;
 
                 case "+":
                     if(math == "+"){ //既に演算子が入力されている場合
@@ -168,9 +171,10 @@
                             }
                             break;
                     }
-                    if(result.length > "16")
+                    if(result.indexOf('.') == -1 && result.length > "16")
                     {
-                        result = orgFloor(result, 16);
+                        console.log("オーバー！");
+                        result = floorDecimal(result, 16);
                     }
                     outputArea.text(result);
                     inputNum = "";
@@ -253,9 +257,8 @@
                     }
                 }
             }
-
-        function orgFloor(value, base) {
-            return Math.floor(value * base) / base;
+        function floorDecimal(value, n) {
+            return Math.round(value * (10 ** n)) / (10 ** n);
         }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}

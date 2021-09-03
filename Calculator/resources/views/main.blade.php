@@ -9,9 +9,9 @@
     {{-- ボタン それぞれリンクがつく Bootstrap5 使用--}}
         {{-- １行目 --}}
         <div style="display:inline-flex">
-            <button class="btn btn-danger rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">AC</button>
+            <button class="btn btn-danger rounded-pill" onclick="javascript:test(this)" style="width:8rem;height:4rem;">AC</button>
             <button class="btn btn-danger rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">C</button>
-            <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">%</button>
+            {{-- <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">%</button> --}}
             <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">÷</button>
         </div>
         <br>
