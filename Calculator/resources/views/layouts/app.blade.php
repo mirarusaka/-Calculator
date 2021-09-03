@@ -171,11 +171,7 @@
                             }
                             break;
                     }
-                    if(result.indexOf('.') == -1 && result.length > "16")
-                    {
-                        console.log("オーバー！");
-                        result = floorDecimal(result, 16);
-                    }
+
                     outputArea.text(result);
                     inputNum = "";
                     flug = 0; //数字を押したフラグ消去
