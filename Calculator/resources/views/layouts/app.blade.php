@@ -168,6 +168,10 @@
                             }
                             break;
                     }
+                    if(result.length > "16")
+                    {
+                        result = orgFloor(result, 16);
+                    }
                     outputArea.text(result);
                     inputNum = "";
                     flug = 0; //数字を押したフラグ消去
@@ -175,12 +179,31 @@
 
                 case "0":
                     //TODO 初期値が0以外の条件で、処理を実行する
-                    if(outputArea.text() != 0){
+                    let nko = String(outputArea).indexOf('.');
+                    if(outputArea.text() != "0"){
                         let num = ""; //入力された値を保存する用
 
                         if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
                             if(outputArea.text() != "0"){
-                                if(math != ""){
+                                if(math != "" && flug == 0){
+                                    flug = 1; //演算子を押した後に数字を押したか
+                                    num = ""; //取得した文字を変数に代入
+                                }else{
+                                    num = outputArea.text(); //取得した文字を変数に代入
+                                }
+                            }
+                            lastNum = num; //最終入力値を保存
+                            num += Number($(obj).text()); //入力された値を連結
+                            outputArea.text(num); //現在表示されている値を上書き
+                        }
+                    }else if(nko != -1){
+                        console.log("koko");
+                        if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                            console.log("はぇ~");
+                            if(outputArea.text() != "0"){
+                                console.log("すっごいおっきい");
+                                if(math != "" && flug == 0){
+                                    console.log("入って、どうぞ");
                                     flug = 1; //演算子を押した後に数字を押したか
                                     num = ""; //取得した文字を変数に代入
                                 }else{
@@ -216,7 +239,7 @@
                     if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
                         lastNum = $(obj).text(); //履歴として保存
                         if(outputArea.text() != "0"){
-                            if(math != ""){
+                            if(math != "" && flug == 0){
                                 flug = 1; //演算子を押した後に数字を押したか
                                 num = ""; //取得した文字を変数に代入
                             }else{
@@ -230,6 +253,10 @@
                     }
                 }
             }
+
+        function orgFloor(value, base) {
+            return Math.floor(value * base) / base;
+        }
         </script>
         {{-- <script src="{{ asset('js/math.js') }}"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
