@@ -36,21 +36,18 @@
                     outputArea.text(0);
                     break;
 
-                // case "%":
-                //     if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
-                //         let inputText = outputArea.text();
-                //         inputText = inputText / 100;
-                //         console.log(String(inputText).length);
-                //         console.log(outputArea);
-                //         //TODO inputTextの文字数をカウントさせる
-                //         if(String(inputText).length > 16){
-                //             let num = (String(inputText).length - 16);
-                //             inputText = floorDecimal(inputText, num);
-                //         }else{
-                //             outputArea.text(inputText);
-                //         }
-                //     }
-                //     break;
+                case "%":
+                    if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        let inputText = outputArea.text();
+                        inputText = inputText / 100;
+                        if(String(inputText).length > 16){
+                            let num = (String(inputText).length - 16);
+                            inputText = floorDecimal(inputText, num);
+                        }else{
+                            outputArea.text(inputText);
+                        }
+                    }
+                    break;
 
                 case "+":
                     if(math == "+"){ //既に演算子が入力されている場合
