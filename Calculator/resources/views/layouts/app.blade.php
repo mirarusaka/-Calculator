@@ -194,13 +194,9 @@
                             outputArea.text(num); //現在表示されている値を上書き
                         }
                     }else if(nko != -1){
-                        console.log("koko");
                         if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
-                            console.log("はぇ~");
                             if(outputArea.text() != "0"){
-                                console.log("すっごいおっきい");
                                 if(math != "" && flug == 0){
-                                    console.log("入って、どうぞ");
                                     flug = 1; //演算子を押した後に数字を押したか
                                     num = ""; //取得した文字を変数に代入
                                 }else{
