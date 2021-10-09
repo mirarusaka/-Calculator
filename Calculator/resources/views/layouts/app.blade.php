@@ -353,7 +353,7 @@
 
                 case "0":
                     equal = ""; //インクリメント用にフラグ消去
-                    let nko = String(outputArea).indexOf('.');
+                    let nko = String(outputArea).indexOf('.'); //小数点が含まれているか確認
                     if(outputArea.text() != "0"){
                         let num = ""; //入力された値を保存する用
 
@@ -373,7 +373,7 @@
                             num += Number($(obj).text()); //入力された値を連結
                             outputArea.text(num); //現在表示されている値を上書き
                         }
-                    }else if(nko != -1){
+                    }else if(nko != -1){ //小数点がある場合
                         if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
                             if(outputArea.text() != "0" || obj.innerText != "0"){
                                 if(math == "" && flug == 0){ //未入力の場合
@@ -399,6 +399,7 @@
                     if(dot.indexOf('.') == -1){ //.があるか判定
                         dot += ".";
                         outputArea.text(dot);
+                        flug = 1;
                     }
                     break;
 
