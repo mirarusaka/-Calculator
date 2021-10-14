@@ -51,11 +51,14 @@
                 case "%":
                     equal = ""; //インクリメント用にフラグ消去
                     if(outputArea.text().length < "16"){ //表示する桁数が16以下の場合は表示
+
+                        //小数点がある場合、現在第何位まであるかを取得し、さらに2位増やす
                         if(outputArea.text().indexOf('.') != -1){
-                        let headNum = outputArea.text().substr(0, outputArea.text().indexOf('.'));
                         let lastNum = outputArea.text().substr(outputArea.text().indexOf('.') + 1);
-                        inputText = "";
-                        inputText = headNum + ".00" + lastNum;
+                        let parse = lastNum.length + 2;
+                        inputText = Number(inputText / 100);
+                        inputText = inputText.toFixed(parse);
+
                         }else{
                             inputText = outputArea.text() / 100;
                         }
