@@ -47,12 +47,20 @@
                     outputArea.text(0);
                     break;
 
+                //TODO 計算結果の桁数制限を実装
                 case "%":
                     equal = ""; //インクリメント用にフラグ消去
                     if(outputArea.text().length < "16"){ //表示する桁数が16以下の場合は表示
-                        inputText = inputText / 100;
-                        outputArea.text(inputText);
+                        if(outputArea.text().indexOf('.') != -1){
+                        let headNum = outputArea.text().substr(0, outputArea.text().indexOf('.'));
+                        let lastNum = outputArea.text().substr(outputArea.text().indexOf('.') + 1);
+                        inputText = "";
+                        inputText = headNum + ".00" + lastNum;
+                        }else{
+                            inputText = outputArea.text() / 100;
+                        }
                     }
+                        outputArea.text(inputText);
                     break;
 
                 case "+":
