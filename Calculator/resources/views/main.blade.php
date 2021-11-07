@@ -10,7 +10,7 @@
         {{-- １行目 --}}
         <div style="display:inline-flex">
             <button class="btn btn-danger rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">AC</button>
-            <button class="btn btn-danger rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">C</button>
+            <button class="btn btn-danger rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">±</button>
             <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">%</button>
             <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">÷</button>
         </div>

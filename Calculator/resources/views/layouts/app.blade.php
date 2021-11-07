@@ -17,6 +17,7 @@
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
+            const MAX_NUM = "17";
             let inputNum = ""; //左辺の値保存用 グローバル
             let math = ""; //演算子保存用 グローバル
             let equal = ""; //インクリメント用
@@ -43,14 +44,14 @@
 
                     break;
 
-                case "C":
-                    outputArea.text(0);
+                case "±":
+                    outputArea.text(outputArea.text() * -1);
                     break;
 
                 //TODO 計算結果の桁数制限を実装
                 case "%":
                     equal = ""; //インクリメント用にフラグ消去
-                    if(outputArea.text().length < "16"){ //表示する桁数が16以下の場合は表示
+                    if(outputArea.text().length < MAX_NUM){ //表示する桁数が16以下の場合は表示
 
                         //小数点がある場合、現在第何位まであるかを取得し、さらに2位増やす
                         if(outputArea.text().indexOf('.') != -1){
@@ -359,6 +360,7 @@
                     inputNum = "";
                     equal = "=";
                     flug = 0; //数字を押したフラグ消去
+                    result = Number(result);
                     outputArea.text(result);
                     break;
 
@@ -368,7 +370,7 @@
                     if(outputArea.text() != "0"){
                         let num = ""; //入力された値を保存する用
 
-                        if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        if(outputArea.text().length < MAX_NUM){ //制限された桁数に達すると動かなくなる
                             if(outputArea.text() != "0" || obj.innerText != "0"){
                                 if(math == "" && flug == 0){ //未入力の場合
                                     flug = 1;
@@ -382,10 +384,11 @@
                             }
                             lastNum = num; //最終入力値を保存
                             num += Number($(obj).text()); //入力された値を連結
+                            num = Number(num);
                             outputArea.text(num); //現在表示されている値を上書き
                         }
                     }else if(nko != -1){ //小数点がある場合
-                        if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                        if(outputArea.text().length < MAX_NUM){ //制限された桁数に達すると動かなくなる
                             if(outputArea.text() != "0" || obj.innerText != "0"){
                                 if(math == "" && flug == 0){ //未入力の場合
                                     flug = 1;
@@ -425,7 +428,7 @@
                 case "9":
                     let num = 0; //入力された値を保存する用
                     equal = ""; //インクリメント用にフラグ消去
-                    if(outputArea.text().length < "16"){ //制限された桁数に達すると動かなくなる
+                    if(outputArea.text().length < "17"){ //制限された桁数に達すると動かなくなる
                         lastNum = $(obj).text(); //履歴として保存
                         if(outputArea.text() != "0" || obj.innerText != "0"){
                             if(math == "" && flug == 0){ //数字も演算子も未入力
@@ -438,8 +441,22 @@
                                 num = outputArea.text(); //取得した文字を変数に代入
                             }
                         }
+                        if(outputArea.text().indexOf('.') != -1){
+                        let lastNum = outputArea.text().substr(outputArea.text().indexOf('.') + 1);
+                        let parse = lastNum.length + 2;
+                        inputText = Number(inputText / 100);
+                        inputText = inputText.toFixed(parse);
+
+                        }else{
+
+                        }
                         num += $(obj).text(); //入力された値を連結
+                        num = num.replace(/,/g, '');
+                        num = parseFloat(num);
+                        console.log(typeof num);
                         lastNum = num; //最終入力値を保存
+                        console.log(lastNum);
+                        num = num.toLocaleString();
                         outputArea.text(num); //現在表示されている値を上書き
                         break;
                     }
