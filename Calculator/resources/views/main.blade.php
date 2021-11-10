@@ -17,9 +17,9 @@
         <br>
         {{-- 2行目 --}}
         <div style="display:inline-flex">
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">1</button>
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">2</button>
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">3</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">7</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">8</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">9</button>
             <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">×</button>
         </div>
         <br>
@@ -33,9 +33,9 @@
         <br>
         {{-- 4行目 --}}
         <div style="display:inline-flex">
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">7</button>
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">8</button>
-            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">9</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">1</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">2</button>
+            <button class="btn btn-primary rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">3</button>
             <button class="btn btn-success rounded-circle p-0" onclick="javascript:test(this)" style="width:4rem;height:4rem;">+</button>
         </div>
         <br>
