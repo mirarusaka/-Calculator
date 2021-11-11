@@ -123,6 +123,7 @@
                         break;
 
                     case "=":
+                        stockOperator = "=";
                         operatorFlug = false;
                         lastNumber = inputText;
                         formula += inputText;
@@ -157,7 +158,6 @@
                                         inputText = eval(formula);
                                     }
                                 }
-
                                 $('.number').text(numberOrganize(String(inputText)));
 
                                 if(inputText > MAX_RESULT){
@@ -165,6 +165,20 @@
                                 }
                                 if(inputText < MIN_RESULT){
                                     $('.number').text(ERROR_MSG);
+                                }
+                                length = String(inputText).length;
+                                if(inputText < 0){
+                                    length--;
+                                }
+                                if(length > MAX_NUM){
+                                    if(inputText > 0 && inputText < 1){
+                                        inputText = inputText.toFixed(MAX_NUM);
+                                    }else if(inputText > -1 && inputText < 0){
+                                        inputText = inputText.toFixed(MAX_NUM + 1);
+                                    }else if(innerText == 0){
+                                        $('.number').text(ERROR_MSG);
+                                    }
+                                    $('.number').text(numberOrganize(String(inputText)));
                                 }
                             }
                         }else{
@@ -180,6 +194,20 @@
                             }
                             if(inputText < MIN_RESULT){
                                 $('.number').text(ERROR_MSG);
+                            }
+                            length = String(inputText).length;
+                            if(inputText < 0){
+                                length--;
+                            }
+                            if(length > MAX_NUM){
+                                if(inputText > 0 && inputText < 1){
+                                    inputText = inputText.toFixed(MAX_NUM);
+                                }else if(inputText > -1 && inputText < 0){
+                                    inputText = inputText.toFixed(MAX_NUM + 1);
+                                } if(innerText == 0){
+                                    $('.number').text(ERROR_MSG);
+                                }
+                                $('.number').text(numberOrganize(String(inputText)));
                             }
                         }
                         formula = "";
