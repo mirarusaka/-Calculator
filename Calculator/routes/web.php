@@ -15,7 +15,7 @@ use App\Http\Controllers\NumberController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//test
 Route::get('/', [MainController::class, 'index']);
 
 Route::get('/main', [MainController::class, 'main']);
