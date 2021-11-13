@@ -19,5 +19,3 @@ use App\Http\Controllers\NumberController;
 Route::get('/', [MainController::class, 'index']);
 
 Route::get('/main', [MainController::class, 'main']);
-
-Route::post('/main', [MainController::class, 'push'])->name('push');
