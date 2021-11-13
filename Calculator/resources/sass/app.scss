@@ -7,19 +7,119 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color:red;
-}
-
-h2{
+.menubar{
     color:white;
     font-size: 14px;
+    text-align: left;
 }
 
 body {
-    font-family: "cursive" ;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image:url(../../storage/app/public/background.jpg);
+    //background-color:black;
+    background-size:cover;
+    // background-image:url(../../storage/app/public/background.jpg);
+    background-image:url(../../storage/app/public/background2.jpg);
+    text-align: center;
   }
+
+.top {
+    color:#DCDCDC;
+    font-size: 92px;
+    font-family: Gothic MB101 DemiBold;
+    text-shadow: 1px 2px 3px #808080;
+
+    p{
+        font-family:  Reimin Light;
+        font-size: 30px;
+    }
+}
+
+.start {
+    text-shadow: 1px 2px 3px #808080;
+    font-size: 55px;
+    text-align:center;
+    font-family: TBCineRGothic M;
+
+    a{
+        color:#f8b500;
+        text-decoration:none;
+    }
+
+
+}
+
+.right {
+    text-align: right;
+    text-shadow: 1px 2px 3px #808080;
+    color:#DCDCDC;
+}
+
+.box {
+    background-color: #1f3134;
+    width: 100%;
+    max-width: 350px;
+    height: 430px;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+.number{
+    background-color: rgb(27, 27, 27);
+    font-size: 40px;
+    text-align: right;
+    color:lightgray;
+    font-family: FB Agency Regular;
+}
+
+.btn-primary
+{
+    background-color: #38a1db;
+    border-color:#38a1db;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.btn-primary:hover{
+    color:#203744;
+    margin-left:0px;
+    margin-top:0px;
+    box-shadow:0px 0px 0px 1px #DEDEDE;
+    background-color: #bce2e8;
+}
+
+.btn-danger
+{
+    background-color: #e9546b;
+    border-color:#e9546b;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.btn-danger:hover{
+    color:#203744;
+    margin-left:0px;
+    margin-top:0px;
+    box-shadow:0px 0px 0px 1px #DEDEDE;
+    background-color: #e597b2;
+}
+
+.btn-success
+{
+    background-color: #69b076;
+    border-color:#69b076;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.btn-success:hover{
+    color:#203744;
+    margin-left:0px;
+    margin-top:0px;
+    box-shadow:0px 0px 0px 1px #DEDEDE;
+    background-color: #badcad;
+}
+
+.rounded-pill{
+    text-align:left;
+    width:160px;
+}

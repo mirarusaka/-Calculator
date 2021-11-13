@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\MathController;
+use App\Http\Controllers\NumberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//test
+Route::get('/', [MainController::class, 'index']);
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/main', [MainController::class, 'main']);
+
+Route::post('/main', [MainController::class, 'push'])->name('push');
