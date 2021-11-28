@@ -239,7 +239,7 @@
                         formula = "";
                         break;
 
-                    case "0": //コメント
+                    case "0":
                         length = inputText.length;
                         if(inputText < 0){
                             length--;
@@ -268,7 +268,7 @@
                                     if(String(inputText).indexOf('.') == -1){ //小数点がない場合
                                         inputText = obj.innerText;
                                     }else{
-                                        if(stockOperator != ""){
+                                        if(stockOperator != "" && formula == ""){
                                             inputText = obj.innerText;
                                             formula += stockOperator;
                                         }else{
