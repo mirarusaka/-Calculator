@@ -268,7 +268,7 @@
                                     if(String(inputText).indexOf('.') == -1){ //小数点がない場合
                                         inputText = obj.innerText;
                                     }else{
-                                        if(stockOperator != "" && formula == ""){
+                                        if(stockOperator != ""){
                                             inputText = obj.innerText;
                                             formula += stockOperator;
                                         }else{
@@ -335,7 +335,7 @@
                                     inputText += obj.innerText;
                                 }
                             }
-                            stockOperator = ""; //演算子入力判定を削除する
+                            stockOperator = ""; //演算子入力判定を削除
                         }
 
                         $('.number').text(numberOrganize(String(inputText)));
