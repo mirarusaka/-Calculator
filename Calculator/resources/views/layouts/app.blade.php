@@ -239,7 +239,7 @@
                         formula = "";
                         break;
 
-                    case "0":
+                    case "0": //コメント
                         length = inputText.length;
                         if(inputText < 0){
                             length--;
