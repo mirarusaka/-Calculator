@@ -253,6 +253,8 @@
                             }else{
                                 if(stockOperator != ""){
                                     inputText = obj.innerText;
+                                    formula += stockOperator;
+
                                 }else{
                                     inputText += obj.innerText;
                                 }
