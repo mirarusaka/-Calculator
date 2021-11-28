@@ -13,13 +13,16 @@
     text-align: left;
 }
 
+html{
+    font-family: 'Gothic MB101', DemiBold;
+}
+
 body {
     //background-color:black;
     background-size:cover;
     // background-image:url(../../storage/app/public/background.jpg);
     background-image:url(../../storage/app/public/background2.jpg);
     text-align: center;
-    font-family: Gothic MB101 DemiBold;
   }
 
 .top {
