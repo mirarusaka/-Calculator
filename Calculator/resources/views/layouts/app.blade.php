@@ -328,12 +328,8 @@
                                     if(String(inputText).indexOf('.') == -1){ //小数点がない場合
                                         inputText = obj.innerText;
                                     }else{
-                                        if(stockOperator != ""){
-                                            inputText = obj.innerText;
-                                            formula += stockOperator;
-                                        }else{
-                                            inputText += obj.innerText;
-                                        }
+                                        inputText += obj.innerText;
+                                        formula += stockOperator;
                                     }
                                 }else{
                                     inputText += obj.innerText;
