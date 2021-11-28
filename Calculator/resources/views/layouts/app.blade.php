@@ -328,14 +328,18 @@
                                     if(String(inputText).indexOf('.') == -1){ //小数点がない場合
                                         inputText = obj.innerText;
                                     }else{
-                                        inputText += obj.innerText;
-                                        formula += stockOperator;
+                                        if(stockOperator != ""){
+                                            inputText += obj.innerText;
+                                            formula += stockOperator;
+                                        }else{
+                                            inputText += obj.innerText;
+                                        }
                                     }
                                 }else{
                                     inputText += obj.innerText;
                                 }
                             }
-                            stockOperator = ""; //演算子入力判定を削除
+                            stockOperator = "";
                         }
 
                         $('.number').text(numberOrganize(String(inputText)));
