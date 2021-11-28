@@ -13,14 +13,14 @@
   <div>
     </head>
     <body>
-        <div class="menubar">お問い合わせ</div>
+        <div class="menubar"><a href="Pokepikacan@gmail.com">お問い合わせ</a></div>
             @yield('contents')
             <div class="right">
                 ©Norihisa Oyama 2021.
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
-            const MAX_NUM = "12"; //桁数制限
+            const MAX_NUM = "14"; //桁数制限
             const MAX_RESULT = "9999999999999"; //最大値の制限
             const MIN_RESULT = "-9999999999999"; //最小値の制限
             const ERROR_MSG = "ERROR!!"; //エラーメッセージ
