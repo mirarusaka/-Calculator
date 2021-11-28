@@ -114,7 +114,7 @@
                             incriment = incrimentClear(incriment);
                         }
                         //直前に入力したのが演算子でない場合(=空である場合)
-                        if(stockOperator == null){
+                        if(stockOperator == ""){
                             formula += inputText;
                             lastNumber = inputText;
                         }
