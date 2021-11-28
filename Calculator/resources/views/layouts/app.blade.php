@@ -72,7 +72,7 @@
                             incriment = incrimentClear(incriment);
                         }
                         //直前に入力したのが演算子でない場合(=空である場合)
-                        if(stockOperator == ""){
+                        if(stockOperator == null){
                             formula += inputText;
                             lastNumber = inputText;
                         }
@@ -86,7 +86,7 @@
                             incriment = incrimentClear(incriment);
                         }
                         //直前に入力したのが演算子でない場合(=空である場合)
-                        if(stockOperator == ""){
+                        if(stockOperator == null){
                             formula += inputText;
                             lastNumber = inputText;
                         }
@@ -100,7 +100,7 @@
                             incriment = incrimentClear(incriment);
                         }
                         //直前に入力したのが演算子でない場合(=空である場合)
-                        if(stockOperator == ""){
+                        if(stockOperator == null){
                             formula += inputText;
                             lastNumber = inputText;
                         }
@@ -114,7 +114,7 @@
                             incriment = incrimentClear(incriment);
                         }
                         //直前に入力したのが演算子でない場合(=空である場合)
-                        if(stockOperator == ""){
+                        if(stockOperator == null){
                             formula += inputText;
                             lastNumber = inputText;
                         }
@@ -146,6 +146,7 @@
                                     formula += incriment;
                                     inputText = eval(formula);
                                 }else{
+                                    //インクリメント発動中かつ、演算子を押していない場合 or 現在の値が0より小さいかつ、演算子入力が1つある
                                     if((incriment != "" && searchOperatior(formula) == 0) ||
                                     (inputText < 0 && incriment != "" && searchOperatior(formula) == 1)){
                                         formula = "";
