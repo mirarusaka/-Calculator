@@ -13,7 +13,7 @@
   <div>
     </head>
     <body>
-        <div class="menubar"><a href="Pokepikacan@gmail.com">お問い合わせ</a></div>
+        <button type="button" class="btn btn-outline-secondary"><a href="Pokepikacan@gmail.com">お問い合わせ</a></button>
             @yield('contents')
             <div class="right">
                 ©Norihisa Oyama 2021.
