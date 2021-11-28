@@ -13,7 +13,7 @@
   <div>
     </head>
     <body>
-        <a href="mailto:Pokepikacan@gmail.com">お問い合わせ</a>
+        <a href="mailto:Pokepikacan@gmail.com"><button type="button" class="btn btn-light">お問い合わせ</button></a>
             @yield('contents')
             <div class="right">
                 ©Norihisa Oyama 2021.
@@ -21,8 +21,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
             const MAX_NUM = "14"; //桁数制限
-            const MAX_RESULT = "9999999999999"; //最大値の制限
-            const MIN_RESULT = "-9999999999999"; //最小値の制限
+            const MAX_RESULT = "99999999999999"; //最大値の制限
+            const MIN_RESULT = "-99999999999999"; //最小値の制限
             const ERROR_MSG = "ERROR!!"; //エラーメッセージ
             var length = 0; //マイナスの桁数制限、
             var lastNumber = "0"; //最後に入力した数値
@@ -53,7 +53,7 @@
                         break;
 
                     case "%":
-                        if(inputText.length < MAX_NUM || operatorFlug === true){
+                        if(inputText.length <= MAX_NUM || operatorFlug === true){
                             if(operatorFlug === true){
                                 operatorFlug = false;
                             }
@@ -202,6 +202,7 @@
                                     }else if(innerText == 0){
                                         $('.number').text(ERROR_MSG);
                                     }
+                                    inputText = Number(inputText);
                                     $('.number').text(numberOrganize(String(inputText)));
                                 }
                             }
@@ -224,13 +225,14 @@
                                 length--;
                             }
                             if(length > MAX_NUM){
-                                if(inputText > 0 && inputText < 1){
+                                if(inputText < 1){
                                     inputText = inputText.toFixed(MAX_NUM);
-                                }else if(inputText > -1 && inputText < 0){
+                                }else if(inputText < 0){
                                     inputText = inputText.toFixed(MAX_NUM + 1);
-                                } if(innerText == 0){
+                                }else if(innerText == 0){
                                     $('.number').text(ERROR_MSG);
                                 }
+                                inputText = Number(inputText);
                                 $('.number').text(numberOrganize(String(inputText)));
                             }
                         }
@@ -268,7 +270,7 @@
                         break;
 
                     case ".":
-                        if(String(inputText).indexOf('.') == -1){ //.があるか判定
+                        if(String(inputText).indexOf('.') == -1){ //小数点がない場合
                             inputText += ".";
                             $('.number').text(numberOrganize(String(inputText)));
                         }
@@ -292,24 +294,37 @@
                             if(operatorFlug === true){
                                 operatorFlug = false;
                             }
+
                             if(incriment != ""){
                                 incriment = incrimentClear(incriment);
                             }
-                            if(stockOperator != ""){
-                                formula += stockOperator;
-                                $('.number').text(0);
+
+                            if(stockOperator != ""){ //演算子を入力している場合
+                                if(String(inputText).indexOf('.') == -1){ //小数点がない場合
+                                    formula += stockOperator;
+                                    $('.number').text(0);
+                                }
                             }
                             //表示しているのが0のみの場合
                             if(inputText == "0" && inputText.length == "1"){
                                 inputText = obj.innerText;
                             }else{
-                                if(stockOperator != ""){
-                                    inputText = obj.innerText;
-                                    stockOperator = "";
+                                if(stockOperator != ""){ //演算子を入力している場合
+                                    if(String(inputText).indexOf('.') == -1){ //小数点がない場合
+                                        inputText = obj.innerText;
+                                    }else{
+                                        if(stockOperator != ""){
+                                            inputText = obj.innerText;
+                                            formula += stockOperator;
+                                        }else{
+                                            inputText += obj.innerText;
+                                        }
+                                    }
                                 }else{
                                     inputText += obj.innerText;
                                 }
                             }
+                            stockOperator = "";
                         }
 
                         $('.number').text(numberOrganize(String(inputText)));
