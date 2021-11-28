@@ -17,7 +17,7 @@
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript">
-            const MAX_NUM = "13"; //桁数制限
+            const MAX_NUM = "11"; //桁数制限
             const MAX_RESULT = "9999999999999"; //最大値の制限
             const MIN_RESULT = "-9999999999999"; //最小値の制限
             const ERROR_MSG = "ERROR!!"; //エラーメッセージ
