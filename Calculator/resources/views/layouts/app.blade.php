@@ -195,9 +195,9 @@
                                     length--;
                                 }
                                 if(length > MAX_NUM){
-                                    if(inputText > 0 && inputText < 1){
+                                    if(inputText > 0){
                                         inputText = inputText.toFixed(MAX_NUM);
-                                    }else if(inputText > -1 && inputText < 0){
+                                    }else if(inputText > 0){
                                         inputText = inputText.toFixed(MAX_NUM + 1);
                                     }else if(innerText == 0){
                                         $('.number').text(ERROR_MSG);
