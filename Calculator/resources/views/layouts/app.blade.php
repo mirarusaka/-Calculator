@@ -252,14 +252,29 @@
                             if(incriment != ""){
                                 incriment = incrimentClear(incriment);
                             }
+
+                            if(stockOperator != ""){ //演算子を入力している場合
+                                if(String(inputText).indexOf('.') == -1){ //小数点がない場合
+                                    formula += stockOperator;
+                                    $('.number').text(0);
+                                }
+                            }
+
                             //表示しているのが0のみの場合
                             if(inputText == "0" && inputText.length == "1"){
                                 inputText = obj.innerText;
                             }else{
                                 if(stockOperator != ""){
-                                    inputText = obj.innerText;
-                                    formula += stockOperator;
-
+                                    if(String(inputText).indexOf('.') == -1){ //小数点がない場合
+                                        inputText = obj.innerText;
+                                    }else{
+                                        if(stockOperator != ""){
+                                            inputText = obj.innerText;
+                                            formula += stockOperator;
+                                        }else{
+                                            inputText += obj.innerText;
+                                        }
+                                    }
                                 }else{
                                     inputText += obj.innerText;
                                 }
