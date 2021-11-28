@@ -16,6 +16,6 @@ use App\Http\Controllers\NumberController;
 |
 */
 //test
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'main']);
 
-Route::get('/main', [MainController::class, 'main']);
+// Route::get('/main', [MainController::class, 'main']);

@@ -10012,12 +10012,12 @@ body {
   background-size: cover;
   background-image: url(/images/background2.jpg?e8e9a35d9d5d59f955b0738eae48f0fd);
   text-align: center;
+  font-family: Gothic MB101 DemiBold;
 }
 
 .top {
   color: #DCDCDC;
   font-size: 92px;
-  font-family: Gothic MB101 DemiBold;
   text-shadow: 1px 2px 3px #808080;
 }
 .top p {
