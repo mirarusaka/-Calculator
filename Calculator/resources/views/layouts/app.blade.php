@@ -251,7 +251,11 @@
                             if(inputText == "0" && inputText.length == "1"){
                                 inputText = obj.innerText;
                             }else{
-                                inputText += obj.innerText;
+                                if(stockOperator != ""){
+                                    inputText = obj.innerText;
+                                }else{
+                                    inputText += obj.innerText;
+                                }
                             }
                         }
 
