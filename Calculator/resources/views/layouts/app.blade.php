@@ -335,7 +335,7 @@
                                     inputText += obj.innerText;
                                 }
                             }
-                            stockOperator = "";
+                            stockOperator = ""; //演算子入力判定を削除
                         }
 
                         $('.number').text(numberOrganize(String(inputText)));
