@@ -75,10 +75,12 @@
                         if(stockOperator == ""){
                             formula += inputText;
                             lastNumber = inputText;
+
                         }else if(stockOperator == "="){
                             formula += inputText;
                             lastNumber = inputText;
                         }
+
                         lastOperator = "+";
                         stockOperator = "+";
                         break;
@@ -92,7 +94,12 @@
                         if(stockOperator == ""){
                             formula += inputText;
                             lastNumber = inputText;
+
+                        }else if(stockOperator == "="){
+                            formula += inputText;
+                            lastNumber = inputText;
                         }
+
                         lastOperator = " - ";
                         stockOperator = " - ";
                         break;
@@ -106,7 +113,12 @@
                         if(stockOperator == ""){
                             formula += inputText;
                             lastNumber = inputText;
+
+                        }else if(stockOperator == "="){
+                            formula += inputText;
+                            lastNumber = inputText;
                         }
+
                         lastOperator = "*";
                         stockOperator = "*";
                         break;
@@ -120,7 +132,12 @@
                         if(stockOperator == ""){
                             formula += inputText;
                             lastNumber = inputText;
+
+                        }else if(stockOperator == "="){
+                            formula += inputText;
+                            lastNumber = inputText;
                         }
+
                         lastOperator = "/";
                         stockOperator = "/";
                         break;
