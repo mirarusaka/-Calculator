@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8036692312713514"
+     crossorigin="anonymous"></script>
 </head>
 <body>
   <div>
@@ -256,10 +258,9 @@
                             if(inputText == "0" && inputText.length == "1"){
                                 inputText = obj.innerText;
                             }else{
-                                if(stockOperator != ""){
+                                if(stockOperator != "" && formula != ""){
                                     inputText = obj.innerText;
                                     formula += stockOperator;
-
                                 }else{
                                     inputText += obj.innerText;
                                 }
